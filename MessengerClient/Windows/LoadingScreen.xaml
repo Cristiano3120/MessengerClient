@@ -1,0 +1,21 @@
+﻿<Window x:Class="MessengerClient.LoadingScreen"
+        xmlns:mp="http://schemas.mpcoding.com/mpcoding/wpf/loadinganimation"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MessengerClient"
+        mc:Ignorable="d" Height="450" Width="350" Background="#1f1e1f" 
+            MaxHeight="450" MinHeight="450" MaxWidth="350" MinWidth="350">
+
+    <Grid x:Name="RootGrid">
+        <Border CornerRadius="20" BorderBrush="#2e2d2e" BorderThickness="2"/>
+
+        <TextBlock Foreground="White" FontSize="30" FontWeight="DemiBold" 
+            VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0, 0, 0, 120">
+            CACX
+        </TextBlock>
+
+        <mp:ThreeDotsAnimation Width="80" Height="50" Color="White" Duration="0:0:1.25"/>
+    </Grid>
+</Window>
