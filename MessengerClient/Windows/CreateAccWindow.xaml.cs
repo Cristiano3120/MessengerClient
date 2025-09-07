@@ -3,7 +3,6 @@ using MessengerClient.GeneratePassword;
 using Microsoft.Win32;
 using System.IO;
 using System.Net.Mail;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -134,7 +133,7 @@ namespace MessengerClient.Windows
                     TFAEnabled = TFACheckBox.IsChecked,
                 };
                 
-                APIResponse<long?> aPIResponse = await Http.PostAsync<User, long?>(_user, "auth/create", CallerInfos.Create());
+                APIResponse<ulong?> aPIResponse = await Http.PostAsync<User, ulong?>(_user, "auth/create", CallerInfos.Create());
                 if (aPIResponse.IsSuccess)
                 {
                     VerificationWindow verificationWindow = new(_user.Email!, aPIResponse.Data.Value);
@@ -344,7 +343,7 @@ namespace MessengerClient.Windows
             return null;
         }
 
-        private void HandleAccCreationError(APIResponse<long?> aPIResponse)
+        private void HandleAccCreationError(APIResponse<ulong?> aPIResponse)
         {
             foreach (APIFieldError aPIFieldError in aPIResponse.FieldErrors)
             {

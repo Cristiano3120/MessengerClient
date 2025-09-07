@@ -6,7 +6,7 @@ namespace MessengerClient.Windows
 {
     public partial class VerificationWindow : Window
     {
-        public VerificationWindow(string email, long userId)
+        public VerificationWindow(string email, ulong userId)
         {
             InitializeComponent();
             GUIHelper.SetBasicWindowUI(this, RootGrid);
@@ -15,7 +15,7 @@ namespace MessengerClient.Windows
             InfoTextBlock.Text = $"Code sent to: {email}";
             VerifyBtn.Click += async (sender, args) =>
             {
-                if (!int.TryParse(CodeTextBox.Text, out int code) && code is < 9_999_999 or > 100_000_000)
+                if (!int.TryParse(CodeTextBox.Text, out int code) && code is < 10_000_000 or > 99_999_999)
                 {
                     await GUIHelper.DisplayInfosAsync(InfoTextBlock, "Invalid code", Brushes.Red);
                     return;
